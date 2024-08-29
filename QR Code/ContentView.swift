@@ -33,7 +33,7 @@ struct ContentView: View {
                         .scaledToFit()
                         .padding(80)
                 }
-                    .navigationTitle("QR Code")
+                    .navigationTitle("QR Code Generator")
                 }
             }
         }
