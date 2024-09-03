@@ -19,7 +19,7 @@ struct ContentView: View {
             ZStack {
                 LinearGradient(colors: [.indigo, .blue], startPoint: .topLeading, endPoint: .bottomTrailing)
                     .ignoresSafeArea()
-        
+                
                 VStack {
                     TextField("Name", text: $name)
                         .textFieldStyle(.roundedBorder)
@@ -27,17 +27,21 @@ struct ContentView: View {
                         .font(.title)
                         .padding(10)
                     
-            Image(uiImage:generateQRCode(_: "\(name)"))
+                    Image(uiImage:generateQRCode(_: "\(name)"))
                         .interpolation(.none)
                         .resizable()
                         .scaledToFit()
-                        .padding(80)
+                        .frame(width: 200,height: 350)
                 }
-                    .navigationTitle("QR Code Generator")
+                .navigationTitle("QR Code Generator")
                 }
             }
         }
     
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+
     func generateQRCode(_ string: String) -> UIImage {
         filter.message = Data(string.utf8)
         
